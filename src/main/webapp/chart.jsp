@@ -55,16 +55,21 @@ function marketPrice(){
 					ws.onopen = function(message) {
 						// 콘솔 텍스트에 메시지를 출력한다.
 						console.log(message);
-						var msg = [{"ticket":"test"},{"type":"ticker","codes":["KRW-BTC"]}];
+						//var msg = [{"ticket":"test"},{"type":"ticker","codes":["KRW-BTC","BTC-BCH"]}];
+						var msg = [{"ticket":"test"},{"type":"ticker","codes":["KRW-BTC","BTC-BCH"]}];
+				
 						ws.send(JSON.stringify(msg));				
 					};	
 					ws.onclose 	= function(e){ 
 						socket = undefined; 
 					}
-					ws.onmessage= function(e){ 					
+					ws.onmessage= function(e){ 
+						console.log(e);
 						var enc = new TextDecoder("utf-8");
 						var arr = new Uint8Array(e.data);	
+						console.log(arr);
 						var decoe_arr = enc.decode(arr);
+						console.log(decoe_arr);
 						var json_arr =JSON.parse(decoe_arr);
 						console.log(json_arr.trade_price);
 						ws.close();
