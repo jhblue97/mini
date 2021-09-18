@@ -1,0 +1,27 @@
+@charset "UTF-8";
+
+body {
+	color : white;
+	background-color : black;
+	font-family : google;
+}
+
+@FONT-FACE {
+	font-family : 'zzz';
+	src:url("../fonts/fontawesome-webfont.woff");
+}
+
+
+@FONT-FACE {
+	font-family : 'google_M';
+	src:url("../fonts/NotoSansKR-Medium.otf");
+}
+@FONT-FACE {
+	font-family : 'google_bold';
+	src:url("../fonts/NotoSansKR-Bold.otf");
+}
+
+@FONT-FACE {
+	font-family : 'google';
+	src:url("../fonts/NotoSansKR-Regular.otf");
+}
