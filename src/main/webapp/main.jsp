@@ -8,6 +8,7 @@
 <meta charset="UTF-8">
 
 <title>main.jsp</title>
+<script src="/resources/js/bitcoinWebsocket.js"></script> 
 </head>
 <body>
 <%@ include file="../include/header.jsp" %>
@@ -57,8 +58,8 @@ Google 지도 통합 바닥글
                         <tbody>
                             <tr>
                                 <td>1</td>
-                                <td>Vincent Williamson</td>
-                                <td>31</td>
+                                <td>Bitcoin</td>
+                                <td><p id = "ko_price"></p></td>
                                 <td>iOS Developer</td>
                                 <td>Sinaai-Waas</td>
                                 <td>
@@ -147,7 +148,12 @@ Google 지도 통합 바닥글
         </div>
     </div>
 </div>
-
+<script>
+ 
+ //bitcoin_ko();
+//document.getElementById("ko_price").value  = "Dddd";
+$('#ko_price').val("ddd");
+</script>
 <%@ include file="../include/footer.jsp" %>
 </body>
 </html>

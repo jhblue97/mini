@@ -56,7 +56,7 @@ function marketPrice(){
 						// 콘솔 텍스트에 메시지를 출력한다.
 						console.log(message);
 						//var msg = [{"ticket":"test"},{"type":"ticker","codes":["KRW-BTC","BTC-BCH"]}];
-						var msg = [{"ticket":"test"},{"type":"ticker","codes":["KRW-BTC","BTC-BCH"]}];
+						var msg = [{"ticket":"test"},{"type":"ticker","codes":["KRW-BTC"]}];
 				
 						ws.send(JSON.stringify(msg));				
 					};	
