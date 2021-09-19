@@ -1,7 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-    
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -12,6 +10,8 @@
 </head>
 <body>
 <%@ include file="../include/header.jsp" %>
+
+
 메인 화면입니다.
 스타일리시한 포트폴리오는 오프 캔버스 탐색과 콘텐츠 섹션을 통한 부드러운 스크롤 기능이 있는 한 페이지 부트스트랩 포트폴리오 테마입니다.
 두 가지 사용자 정의 버튼 스타일을 특징으로 하는 업데이트된 디자인
@@ -33,14 +33,6 @@ Google 지도 통합 바닥글
                         <div class="col col-sm-3 col-xs-12">
                             <h4 class="title">STREAM <span>TRADE_PRICE</span></h4>
                         </div>
-                        <div class="col-sm-9 col-xs-12 text-right">
-                            <div class="btn_group">
-                                <input type="text" class="form-control" placeholder="Search">
-                                <button class="btn btn-default" title="Reload"><i class="fa fa-sync-alt"></i></button>
-                                <button class="btn btn-default" title="Pdf"><i class="fa fa-file-pdf"></i></button>
-                                <button class="btn btn-default" title="Excel"><i class="fas fa-file-excel"></i></button>
-                            </div>
-                        </div>
                     </div>
                 </div>
                 <div class="panel-body table-responsive">
@@ -59,8 +51,8 @@ Google 지도 통합 바닥글
                             <tr>
                                 <td>1</td>
                                 <td>Bitcoin</td>
-                                <td><p id = "ko_price"></p></td>
-                                <td>iOS Developer</td>
+                                <td><p id = "ko_price1"></p></td>
+                                <td><p id = "en_price1"></td>
                                 <td>Sinaai-Waas</td>
                                 <td>
                                     <ul class="action-list">
@@ -71,9 +63,9 @@ Google 지도 통합 바닥글
                             </tr>
                             <tr>
                                 <td>2</td>
-                                <td>Taylor Reyes</td>
-                                <td>22</td>
-                                <td>UI/UX Developer</td>
+                                <td>ETHERUM</td>
+                                <td><p id = "ko_price2"></p></td>
+                                <td><p id = "en_price2"></td>
                                 <td>Baileux</td>
                                 <td>
                                     <ul class="action-list">
@@ -84,9 +76,9 @@ Google 지도 통합 바닥글
                             </tr>
                             <tr>
                                 <td>3</td>
-                                <td>Justin Block</td>
-                                <td>26</td>
-                                <td>Frontend Developer</td>
+                                <td>RIPPLE</td>
+                                <td><p id = "ko_price3"></p></td>
+                                <td><p id = "en_price3"></td>
                                 <td>Overland Park</td>
                                 <td>
                                     <ul class="action-list">
@@ -97,9 +89,9 @@ Google 지도 통합 바닥글
                             </tr>
                             <tr>
                                 <td>4</td>
-                                <td>Sean Guzman</td>
-                                <td>26</td>
-                                <td>Web Designer</td>
+                                <td>DOGE</td>
+                                <td><p id = "ko_price4"></p></td>
+                                <td><p id = "en_price4"></td>
                                 <td>Gloucester</td>
                                 <td>
                                     <ul class="action-list">
@@ -110,9 +102,9 @@ Google 지도 통합 바닥글
                             </tr>
                             <tr>
                                 <td>5</td>
-                                <td>Keith Carter</td>
-                                <td>20</td>
-                                <td>Graphic Designer</td>
+                                <td>ADA</td>
+                                <td><p id = "ko_price5"></p></td>
+                                <td><p id = "en_price5"></td>
                                 <td>Oud-Turnhout</td>
                                 <td>
                                     <ul class="action-list">
@@ -125,35 +117,229 @@ Google 지도 통합 바닥글
                     </table>
                 </div>
                 <div class="panel-footer">
-                    <div class="row">
-                        <div class="col col-sm-6 col-xs-6">showing <b>5</b> out of <b>25</b> entries</div>
-                        <div class="col-sm-6 col-xs-6">
-                            <ul class="pagination hidden-xs pull-right">
-                                <li><a href="#"><</a></li>
-                                <li class="active"><a href="#">1</a></li>
-                                <li><a href="#">2</a></li>
-                                <li><a href="#">3</a></li>
-                                <li><a href="#">4</a></li>
-                                <li><a href="#">5</a></li>
-                                <li><a href="#">></a></li>
-                            </ul>
-                            <ul class="pagination visible-xs pull-right">
-                                <li><a href="#"><</a></li>
-                                <li><a href="#">></a></li>
-                            </ul>
-                        </div>
-                    </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
-<script>
- 
- //bitcoin_ko();
-//document.getElementById("ko_price").value  = "Dddd";
-$('#ko_price').val("ddd");
-</script>
+<script type="text/javascript">
+ 				
+$(document).ready(function(){
+
+    $.ajax({
+      url: "https://exchange.jaeheon.kr:23490/query/USDKRW",   
+    		 type:"get",
+      cache : false,
+      dataType: "json",
+      success: function(data){ 
+    	console.log(data.USDKRW);
+    	  console.log(JSON.stringify(data));
+    	
+      }
+    });
+    
+    
+	
+	
+  /*   $('#ko_price1').on('DOMSubtreeModified propertychange', function() {
+    		console.log('값 변경 됨');
+    	
+    }); */
+});	
+
+
+	////////////////////////////test/////////////////////////////////
+	  	function BTC(){				
+	 		 var bitcoin_ko='';
+			 var ws = new WebSocket("wss://api.upbit.com/websocket/v1");
+					ws.binaryType = 'arraybuffer';				
+					ws.onopen = function(message) {
+							 ws.send(JSON.stringify([{"ticket":"test"},{"type":"ticker","codes":["KRW-BTC"]}]));
+							/* await ws.send(JSON.stringify([{"ticket":"test"},{"type":"ticker","codes":["KRW-ETH"]}]));	
+							await ws.send(JSON.stringify([{"ticket":"test"},{"type":"ticker","codes":["KRW-XRP"]}]));	
+							await ws.send(JSON.stringify([{"ticket":"test"},{"type":"ticker","codes":["KRW-DOGE"]}]));	
+							await ws.send(JSON.stringify([{"ticket":"test"},{"type":"ticker","codes":["KRW-ADA"]}]));	
+						 */	
+					};	 
+					ws.onclose 	= function(e){ 
+						socket = undefined; 
+					}
+					ws.onmessage= function(e){ 
+						//console.log(e);
+						var enc = new TextDecoder("utf-8");
+						var arr = new Uint8Array(e.data);	
+						var decoe_arr = enc.decode(arr);
+						var json_arr =JSON.parse(decoe_arr);
+						bitcoin_ko  = json_arr.trade_price;
+						$("#ko_price1").text(bitcoin_ko);
+					}
+				}
+	
+	  	function ETH(){				
+	 		 var bitcoin_ko='';
+			 var ws = new WebSocket("wss://api.upbit.com/websocket/v1");
+					ws.binaryType = 'arraybuffer';				
+					ws.onopen = function(message) {
+							 ws.send(JSON.stringify([{"ticket":"test"},{"type":"ticker","codes":["KRW-ETH"]}]));
+								};	 
+					ws.onclose 	= function(e){ 
+						socket = undefined; 
+					}
+					ws.onmessage= function(e){ 
+						//console.log(e);
+						var enc = new TextDecoder("utf-8");
+						var arr = new Uint8Array(e.data);	
+						var decoe_arr = enc.decode(arr);
+						var json_arr =JSON.parse(decoe_arr);
+						bitcoin_ko  = json_arr.trade_price;
+						$("#ko_price2").text(bitcoin_ko);
+					}
+				}
+	  	
+	 	function XRP(){				
+	 		 var bitcoin_ko='';
+			 var ws = new WebSocket("wss://api.upbit.com/websocket/v1");
+					ws.binaryType = 'arraybuffer';				
+					ws.onopen = function(message) {
+							 ws.send(JSON.stringify([{"ticket":"test"},{"type":"ticker","codes":["KRW-XRP"]}]));
+								};	 
+					ws.onclose 	= function(e){ 
+						socket = undefined; 
+					}
+					ws.onmessage= function(e){ 
+						//console.log(e);
+						var enc = new TextDecoder("utf-8");
+						var arr = new Uint8Array(e.data);	
+						var decoe_arr = enc.decode(arr);
+						var json_arr =JSON.parse(decoe_arr);
+						bitcoin_ko  = json_arr.trade_price;
+						$("#ko_price3").text(bitcoin_ko);
+					}
+				} 	
+		function DOGE(){				
+	 		 var bitcoin_ko='';
+			 var ws = new WebSocket("wss://api.upbit.com/websocket/v1");
+					ws.binaryType = 'arraybuffer';				
+					ws.onopen = function(message) {
+							 ws.send(JSON.stringify([{"ticket":"test"},{"type":"ticker","codes":["KRW-DOGE"]}]));
+							};	 
+					ws.onclose 	= function(e){ 
+						socket = undefined; 
+					}
+					ws.onmessage= function(e){ 
+						//console.log(e);
+						var enc = new TextDecoder("utf-8");
+						var arr = new Uint8Array(e.data);	
+						var decoe_arr = enc.decode(arr);
+						var json_arr =JSON.parse(decoe_arr);
+						bitcoin_ko  = json_arr.trade_price;
+						$("#ko_price4").text(bitcoin_ko);
+					}
+				}
+		function ADA(){				
+	 		 var bitcoin_ko='';
+			 var ws = new WebSocket("wss://api.upbit.com/websocket/v1");
+					ws.binaryType = 'arraybuffer';				
+					ws.onopen = function(message) {
+							 ws.send(JSON.stringify([{"ticket":"test"},{"type":"ticker","codes":["KRW-ADA"]}]));
+						};	 
+					ws.onclose 	= function(e){ 
+						socket = undefined; 
+					}
+					ws.onmessage= function(e){ 
+						//console.log(e);
+						var enc = new TextDecoder("utf-8");
+						var arr = new Uint8Array(e.data);	
+						var decoe_arr = enc.decode(arr);
+						var json_arr =JSON.parse(decoe_arr);
+						bitcoin_ko  = json_arr.trade_price;
+						$("#ko_price5").text(bitcoin_ko);
+					}
+				}
+	 	function BTC_U(){				
+	 		 var bitcoin_ko='';
+			 var ws = new WebSocket("wss://stream.binance.com:9443/ws/btcusdt@trade");			
+				/* 	ws.onopen = function(message) {
+							 ws.send(JSON.stringify([{"ticket":"test"},{"type":"ticker","codes":["KRW-BTC"]}]));
+							}; */	 
+					ws.onclose 	= function(e){ 
+						socket = undefined; 
+					}
+					ws.onmessage= function(e){ 	
+						var price = JSON.parse(e.data);
+						$("#en_price1").text(parseFloat(price.p).toFixed(2));
+					}
+				}
+	 	function ETH_U(){				
+	 		 var bitcoin_ko='';
+			 var ws = new WebSocket("wss://stream.binance.com:9443/ws/ethusdt@trade");			
+				/* 	ws.onopen = function(message) {
+							 ws.send(JSON.stringify([{"ticket":"test"},{"type":"ticker","codes":["KRW-BTC"]}]));
+							}; */	 
+					ws.onclose 	= function(e){ 
+						socket = undefined; 
+					}
+					ws.onmessage= function(e){ 	
+						var price = JSON.parse(e.data);
+						$("#en_price2").text(parseFloat(price.p).toFixed(2));
+					}
+				}
+	 	
+	 	function XRP_U(){				
+	 		 var bitcoin_ko='';
+			 var ws = new WebSocket("wss://stream.binance.com:9443/ws/xrpusdt@trade");			
+				/* 	ws.onopen = function(message) {
+							 ws.send(JSON.stringify([{"ticket":"test"},{"type":"ticker","codes":["KRW-BTC"]}]));
+							}; */	 
+					ws.onclose 	= function(e){ 
+						socket = undefined; 
+					}
+					ws.onmessage= function(e){ 	
+						var price = JSON.parse(e.data);
+						$("#en_price3").text(parseFloat(price.p).toFixed(2));
+					}
+				}
+	 	function DOGE_U(){				
+	 		 var bitcoin_ko='';
+			 var ws = new WebSocket("wss://stream.binance.com:9443/ws/dogeusdt@trade");			
+				/* 	ws.onopen = function(message) {
+							 ws.send(JSON.stringify([{"ticket":"test"},{"type":"ticker","codes":["KRW-BTC"]}]));
+							}; */	 
+					ws.onclose 	= function(e){ 
+						socket = undefined; 
+					}
+					ws.onmessage= function(e){ 	
+						var price = JSON.parse(e.data);
+						$("#en_price4").text(parseFloat(price.p).toFixed(2));
+					}
+				}
+	 	function ADA_U(){				
+	 		 var bitcoin_ko='';
+			 var ws = new WebSocket("wss://stream.binance.com:9443/ws/adausdt@trade");			
+				/* 	ws.onopen = function(message) {
+							 ws.send(JSON.stringify([{"ticket":"test"},{"type":"ticker","codes":["KRW-BTC"]}]));
+							}; */	 
+					ws.onclose 	= function(e){ 
+						socket = undefined; 
+					}
+					ws.onmessage= function(e){ 	
+						var price = JSON.parse(e.data);
+						$("#en_price5").text(parseFloat(price.p).toFixed(2));
+					}
+				}
+	 	BTC();
+	 	ETH();	
+	 	XRP();
+	 	DOGE();
+	 	ADA();
+	 	BTC_U();
+	 	ETH_U();
+	 	XRP_U();
+	 	DOGE_U();
+	 	ADA_U();
+	//////////////////test end//////////////////////////////////////
+				
+</script>  
 <%@ include file="../include/footer.jsp" %>
 </body>
 </html>

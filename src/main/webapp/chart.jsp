@@ -24,7 +24,7 @@ function marketPrice(){
 	
     $.ajax({
      // url: "https://crix-api-endpoint.upbit.com/v1/crix/candles/days/?code=CRIX.UPBIT.KRW-BTC",
-      url: "https://api.bithumb.com/public/ticker/BTCUSDT",  
+      url: "https://api.bithumb.com/public/ticker/BTCUSDT",   
     		 type:"get",
       cache : false,
       success: function(data){ // getserver.php 파일에서 echo 결과값이 data 임
@@ -55,10 +55,12 @@ function marketPrice(){
 					ws.onopen = function(message) {
 						// 콘솔 텍스트에 메시지를 출력한다.
 						console.log(message);
-						//var msg = [{"ticket":"test"},{"type":"ticker","codes":["KRW-BTC","BTC-BCH"]}];
-						var msg = [{"ticket":"test"},{"type":"ticker","codes":["KRW-BTC"]}];
-				
-						ws.send(JSON.stringify(msg));				
+						var msg = [{"ticket":"test"},{"type":"ticker","codes":["KRW-BTC","BTC-BCH"]}];
+						//var msg = [{"ticket":"test"},{"type":"ticker","codes":["KRW-BTC"]}];
+						console.log(msg);
+						console.log(JSON.stringify(msg))
+						ws.send(JSON.stringify(msg));	
+						
 					};	
 					ws.onclose 	= function(e){ 
 						socket = undefined; 
@@ -72,7 +74,7 @@ function marketPrice(){
 						console.log(decoe_arr);
 						var json_arr =JSON.parse(decoe_arr);
 						console.log(json_arr.trade_price);
-						ws.close();
+						//ws.close();
 					}	
 				
 					
