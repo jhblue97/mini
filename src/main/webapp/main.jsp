@@ -124,6 +124,7 @@ Google 지도 통합 바닥글
 </div>
 <script type="text/javascript">
  				
+<<<<<<< HEAD
 $(document).ready(function(){
 
     $.ajax({
@@ -148,6 +149,8 @@ $(document).ready(function(){
 });	
 
 
+=======
+>>>>>>> refs/remotes/origin/master
 	////////////////////////////test/////////////////////////////////
 	  	function BTC(){				
 	 		 var bitcoin_ko='';
