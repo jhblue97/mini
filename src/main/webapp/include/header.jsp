@@ -6,63 +6,40 @@
 <link rel="stylesheet" 
 	  href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css">
 <link rel="stylesheet" href="/resources/css/common.css">
-<nav class="navbar navbar-expand navbar-dark bg-dark">
+<!-- <nav class="navbar navbar-expand navbar-dark bg-dark"> -->
+<nav class="navbar navbar-expand">
 	<div class="container">
 		<div class="navbar-header">
-			<a class="navbar-brand" href="/">Home</a>
+			<a class="navbar-brand" href="/"><img src = "../resources/images/bitcoin.png" width = "40">&nbsp; Bit Gallery</a>
 		</div>
 	</div>
 	<div>
-		<%-- <ul class="navbar-nav mr-auto">
+	
+		<ul class="navbar-nav mr-auto">
 			<!-- 로그인에 여부에 따라 표시 처리 ----------------------->
-			<c:choose>
-				<c:when test="${ empty sid }">
+				<c:choose>
+				<c:when test="${ empty userid}">
 					<li class="nav-item">
 						<a class="nav-link"
-							href="/member/loginMember.jsp">로그인</a>
-					</li>
-						<li class="nav-item">
-						<a class="nav-link"
-							href="/member/addMember.jsp">회원가입</a>
+							href="/login.jsp">Login</a>
 					</li>
 				</c:when>
-				로그인한 경우에만 표시 --------------------------
 				<c:otherwise>
 					<li class="nav-item">
-						<span class="nav-link" style="color:white; font-weight: bold;">[ ${sid }님]</span>
+						<span class="nav-link" style="color:white; font-weight: bold;">[ Hello ! ${name}]</span>
 					</li>
 					<li class="nav-item">
 						<a class="nav-link"
-							href="/member/updateMember.jsp?id=<%=session.getAttribute("sid")%>">회원수정</a>
+							href="/member/updateMember.jsp?id=<%=session.getAttribute("sid")%>">UPDATE</a>
 					</li>
 					<li class="nav-item">
 						<a class="nav-link"
-							href="/member/logoutMember.jsp">로그아웃</a>
+							href="logout.jsp">logout</a>
 					</li>
 				</c:otherwise>
 			</c:choose>
-			<li class="nav-item">
-				<a class="nav-link"
-					href="/BoardList.do?pageNum=1">게시판</a>
-			</li>
 			
-			<li class="nav-item">
-				<a class="nav-link"
-					href="/product/productList.jsp">상품목록</a>
-			</li>
-			<li class="nav-item">
-				<a class="nav-link"
-					href="/product/productAdd.jsp">상품등록</a>
-			</li>
-			<li class="nav-item">
-				<a class="nav-link"
-					href="/product/productEdit.jsp?edit=modify">상품수정</a>
-			</li>
-			<li class="nav-item">
-				<a class="nav-link"
-					href="/product/productEdit.jsp?edit=remove">상품삭제</a>
-			</li>
-		</ul>	 --%>
+		</ul>	
 	</div>
 
 </nav>

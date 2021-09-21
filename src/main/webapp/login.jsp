@@ -1,71 +1,110 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html>
+<html style = "height: 100%;">
 <head>
 <meta charset="UTF-8">
+
+<script src="https://developers.kakao.com/sdk/js/kakao.js"></script> 
 <title>login.jsp</title>
 </head>
-<body>
+<body  class="main-bg" style ="    height: 100%;
+    margin: 0;
+    background-repeat: no-repeat;
+    background-attachment: fixed;">
 <%@ include file="../include/header.jsp" %>
-
+<jsp:useBean id = "user" class = "edu.mini.dto.Users"/>
 <script>
+Kakao.init('0eddcf33f74e05ddec2ab39ebbd750cb'); //발급받은 키 중 javascript키를 사용해준다.
+console.log(Kakao.isInitialized()); // sdk초기화여부판단
+//카카오로그인
+function kakaoLogin() {
+    Kakao.Auth.login({
+      success: function (response) {
+        Kakao.API.request({
+          url: '/v2/user/me',
+          success: function (response) {
+        	  console.log(JSON.stringify(response))
+        	  console.log('id-->'+JSON.stringify(response.id))
+          
+        	    $.ajax ({
 
-/////=========Kakao Login View popup ==========////////////
-
-$(function() {
+        	        "url" : "/User/json/idCheck2.do?snsid="+response.id+"&snsflag=K",
+        	        cache : false,
+        	        type:"get", 
+        	        success : function (data) {
+        	        	console.log(data);
+        	        	if(data==1){
+							location.href = "/main.jsp";
+        	        	}else{
+        	   			 location.href = 'signUp.jsp?snsID='+JSON.stringify(response.id)+'&snsFlag=K';
+        	        	}
+        	        }
+        	    }); 
+        	    
+        	    
+        	 
+              
+          },
+          fail: function (error) {
+            console.log(error)
+          },
+        })
+      },
+      fail: function (error) {
+        console.log(error)
+      },
+    })
+  }
+//카카오로그아웃  
+function kakaoLogout() {
 	
-	  $("#Kakao").on("click", function() {
-		   
-		  var  URL = "https://kauth.kakao.com/oauth/authorize?client_id=0eddcf33f74e05ddec2ab39ebbd750cb&redirect_uri=http://192.168.219.101:8080/main.jsp&response_type=code"
-		  popWin
-		  = window.open(URL,   "popWin",  "left=300,top=200,width=780,height=500,marginwidth=0,marginheight=0,"+
-					"scrollbars=no,scrolling=no,menubar=no,resizable=no") 
-					 opener.window.location = url;
-		  close();
-					
-					
-	  });
-	
-	  
-	  
-		$('button[name="get"]').on("click", function() {
-			var streamer = $(this).data("param");
-			//alert(streamer);
-		 	 $.ajax({
-	             url : '/stream/json/checkBan?userNo=${user.userNo}&streamer='+streamer,   
-	             method : 'get', 
-	             headers: {
-	   	            "Accept": "application/json",
-	   	            "Content-Type": "application/json"
-	   	        }, 
-	             success : function (JSONData,status) {
-	           if(JSONData==1){
-	        	   swal("강퇴 당하셔서 입장 불가능 하십니다 ","다음기회에...~", "error");
-	           }else{
-	        		 window.open("https://192.168.0.43:443/stream/join?streamer="+streamer+"&userNo=${user.userNo}&userNickname=${user.userNickname}&userProfile=${user.profile}", "popup_window", "width=1450, height=900, scrollbars=no");
-	           }  	                    
-	             },  
-	             error : function (err) { 
-	             	alert('실패 ㅠㅠ');
-	                 } 
-	         });
-		}); 
-	  
-}); 
+    if (Kakao.Auth.getAccessToken()) {
+      Kakao.API.request({
+        url: '/v1/user/unlink',
+        success: function (response) {
+        	console.log('id-->'+response.id)
+        }, 
+        fail: function (error) {
+          console.log(error)
+        },
+      })
+      Kakao.Auth.setAccessToken(undefined)
+    }
+    
+  }  
 
 </script>
+<!-- <ul>
 
-
-<div class="jumbotron">
-	<div class="container">
-		<h1 class="display-3"><!-- 상품 등록 -->
-로그인
-		</h1></div>
-		
-</div>
-
-	
-	
+	<li onclick="kakaoLogin();">
+      <a href="javascript:void(0)">
+          <span><img src="/resources/images/KakaoTalk.png" height="50" width="50"/></span>
+      </a>
+	</li>
+	<li onclick="kakaoLogout();">
+      <a href="javascript:void(0)">
+          <span>카카오 로그아웃</span>
+      </a>
+	</li>
+</ul>
+ -->
+        <div class="login-container text-c animated flipInX">
+                <div>
+                    <h1 class="logo-badge text-whitesmoke"><span class="fa fa-user-circle"></span></h1>
+                </div>
+                    <h3 class="text-whitesmoke">Bit Gallery</h3>
+                    <p class="text-whitesmoke">Sign In</p>
+                <div class="container-content">
+                    <form class="margin-t">
+                        <div class="form-group">
+						<!-- <a href=# id="Kakao"> <img src="/resources/images/KakaoTalk.png" height="50" width="50"/></a> -->	
+          			<span><img src="/resources/images/KakaoTalk.png" height="50" width="50" onclick = "kakaoLogin();"/></span>				
+                       </div>
+                       </form>
+                  </div>
+            </div>
+            
+<%@ include file="../include/footer.jsp" %>
 </body>
 </html>

@@ -6,32 +6,31 @@
 <meta charset="UTF-8">
 
 <title>main.jsp</title>
-<script src="/resources/js/bitcoinWebsocket.js"></script> 
 </head>
-<body>
+<body  class="main-bg" style ="   
+	height: 100%;margin: 0;
+    background-repeat: no-repeat;
+    background-attachment: fixed;">
 <%@ include file="../include/header.jsp" %>
 
 
-메인 화면입니다.
-스타일리시한 포트폴리오는 오프 캔버스 탐색과 콘텐츠 섹션을 통한 부드러운 스크롤 기능이 있는 한 페이지 부트스트랩 포트폴리오 테마입니다.
-두 가지 사용자 정의 버튼 스타일을 특징으로 하는 업데이트된 디자인
-사용자 정의 토글 버튼이 있는 오프 캔버스 탐색
-전체 페이지 배경 이미지와 세로 중앙에 콘텐츠가 있는 100% 높이 헤더 섹션
-jQuery를 사용한 부드러운 페이지 스크롤
-클릭 유도문안 섹션
-Font Awesome 아이콘이 있는 서비스 섹션
-포트폴리오 이미지 그리드
-Google 지도 통합 바닥글
-소셜 아이콘이 있는 바닥글 
+    <div class="col-md-offset-1 col-md-12">
 
+		<h1 id = "divClock"  class="clock" style="text-align: center;"></h1>
+
+	</div>
+  
 <div class="container">
     <div class="row">
-        <div class="col-md-offset-1 col-md-10">
+        <div class="col-md-offset-1 col-md-8">
             <div class="panel">
                 <div class="panel-heading">
+                         <div>
+                           기준 거래소 : KRW - UPbit , USD - Binance
+                        </div>
                     <div class="row">
-                        <div class="col col-sm-3 col-xs-12">
-                            <h4 class="title">STREAM <span>TRADE_PRICE</span></h4>
+                          <div class="col col-sm-3 col-xs-12">
+                            <h4 class="title">STREAM TRADE_PRICE</h4> 
                         </div>
                     </div>
                 </div>
@@ -41,77 +40,46 @@ Google 지도 통합 바닥글
                             <tr>
                                 <th>#</th>
                                 <th>Name</th>
-                                <th>KO_PRICE</th>
-                                <th>USD_PRICE</th>
-                                <th>City</th>
-                                <th>Action</th>
+                                <th>KO_PRICE ₩</th>
+                                <th>USD_PRICE $</th>
+                                <th>KOREA PREMIUM</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
-                                <td>1</td>
-                                <td>Bitcoin</td>
+                                <td>&nbsp; 1</td>
+                                <td><img src = "/resources/images/BITCOINICON.png" width = "20"> &nbsp; BITCOIN</td>
                                 <td><p id = "ko_price1"></p></td>
-                                <td><p id = "en_price1"></td>
-                                <td>Sinaai-Waas</td>
-                                <td>
-                                    <ul class="action-list">
-                                        <li><a href="#" data-tip="edit"><i class="fa fa-edit"></i></a></li>
-                                        <li><a href="#" data-tip="delete"><i class="fa fa-trash"></i></a></li>
-                                    </ul>
-                                </td>
+                                <td><p id = "en_price1"></p></td>
+                                <td><p id = "ko_pre1"></p></td>
                             </tr>
                             <tr>
-                                <td>2</td>
-                                <td>ETHERUM</td>
+                                <td>&nbsp; 2</td>
+                                <td><img src = "/resources/images/ETH.png" width = "20"> &nbsp; ETHERUM</td>
                                 <td><p id = "ko_price2"></p></td>
-                                <td><p id = "en_price2"></td>
-                                <td>Baileux</td>
-                                <td>
-                                    <ul class="action-list">
-                                        <li><a href="#" data-tip="edit"><i class="fa fa-edit"></i></a></li>
-                                        <li><a href="#" data-tip="delete"><i class="fa fa-trash"></i></a></li>
-                                    </ul>
-                                </td>
+                                <td><p id = "en_price2"></p></td>
+                                <td><p id = "ko_pre2"></p></td>
                             </tr>
                             <tr>
-                                <td>3</td>
-                                <td>RIPPLE</td>
+                                <td>&nbsp; 3</td>
+                                <td><img src = "/resources/images/RIPPLE.png" width = "20"> &nbsp; RIPPLE</td>
                                 <td><p id = "ko_price3"></p></td>
-                                <td><p id = "en_price3"></td>
-                                <td>Overland Park</td>
-                                <td>
-                                    <ul class="action-list">
-                                        <li><a href="#" data-tip="edit"><i class="fa fa-edit"></i></a></li>
-                                        <li><a href="#" data-tip="delete"><i class="fa fa-trash"></i></a></li>
-                                    </ul>
-                                </td>
+                                <td><p id = "en_price3"></p></td>
+                                <td><p id = "ko_pre3"></p></td>
                             </tr>
                             <tr>
-                                <td>4</td>
-                                <td>DOGE</td>
+                                <td>&nbsp; 4</td>
+                                <td><img src = "/resources/images/DOGE.png" width = "20"> &nbsp; DOGE</td>
                                 <td><p id = "ko_price4"></p></td>
-                                <td><p id = "en_price4"></td>
-                                <td>Gloucester</td>
-                                <td>
-                                    <ul class="action-list">
-                                        <li><a href="#" data-tip="edit"><i class="fa fa-edit"></i></a></li>
-                                        <li><a href="#" data-tip="delete"><i class="fa fa-trash"></i></a></li>
-                                    </ul>
-                                </td>
+                                <td><p id = "en_price4"></p></td>
+                                <td><p id = "ko_pre4"></p></td>
                             </tr>
                             <tr>
-                                <td>5</td>
-                                <td>ADA</td>
+                                <td>&nbsp; 5</td>
+                                <td><img src = "/resources/images/ADA.png" width = "20"> &nbsp; ADA</td>
                                 <td><p id = "ko_price5"></p></td>
-                                <td><p id = "en_price5"></td>
-                                <td>Oud-Turnhout</td>
-                                <td>
-                                    <ul class="action-list">
-                                        <li><a href="#" data-tip="edit"><i class="fa fa-edit"></i></a></li>
-                                        <li><a href="#" data-tip="delete"><i class="fa fa-trash"></i></a></li>
-                                    </ul>
-                                </td>
+                                <td><p id = "en_price5"></p></td>
+                                <td><p id = "ko_pre5"></p></td>
                             </tr>
                         </tbody>
                     </table>
@@ -120,37 +88,201 @@ Google 지도 통합 바닥글
                 </div>
             </div>
         </div>
+        <!-- TradingView Widget BEGIN -->
+          <div class="col-md-offset-1 col-md-4">
+<!-- TradingView Widget BEGIN -->
+<!-- TradingView Widget BEGIN -->
+<div class="tradingview-widget-container">
+  <div id="tradingview_f0989"></div>
+  <!-- <div class="tradingview-widget-copyright">TradingView 제공 <a href="https://kr.tradingview.com/symbols/BTCUSDT/?exchange=BINANCE" rel="noopener" target="_blank"><span class="blue-text">BTCUSDT 차트</span></a></div>
+  -->
+   <script type="text/javascript" src="https://s3.tradingview.com/tv.js"></script>
+  <script type="text/javascript">
+  new TradingView.widget(
+  {
+  "width": 450,
+  "height": 550,
+  "symbol": "BINANCE:BTCUSDT",
+  "interval": "D",
+  "timezone": "Etc/UTC",
+  "theme": "dark",
+  "style": "1",
+  "locale": "kr",
+  "toolbar_bg": "#f1f3f6",
+  "enable_publishing": false,
+  "allow_symbol_change": true,
+  "container_id": "tradingview_f0989"
+}
+  );
+  </script>
+</div>
+<!-- TradingView Widget END --></div>
+        
+        
     </div>
 </div>
 <script type="text/javascript">
- 				
-<<<<<<< HEAD
-$(document).ready(function(){
 
-    $.ajax({
-      url: "https://exchange.jaeheon.kr:23490/query/USDKRW",   
-    		 type:"get",
-      cache : false,
-      dataType: "json",
-      success: function(data){ 
-    	console.log(data.USDKRW);
-    	  console.log(JSON.stringify(data));
-    	
-      }
-    });
-    
-    
-	
-	
-  /*   $('#ko_price1').on('DOMSubtreeModified propertychange', function() {
-    		console.log('값 변경 됨');
-    	
-    }); */
-});	
+	$(document).ready(function(){
+
+		timer = setInterval( function () {
+
+		    $.ajax ({
+
+		        "url" : "/Chart/exchange.do",
+		        cache : false,
+		        type:"get", 
+		        success : function (data) {
+		        	 $('#ko_pre1').text(((($('#ko_price1').text()-($('#en_price1').text()*data))/$('#ko_price1').text())*100).toFixed(2)+'%');
+		        	 $('#ko_pre2').text(((($('#ko_price2').text()-($('#en_price2').text()*data))/$('#ko_price2').text())*100).toFixed(2)+'%');
+			    	 $('#ko_pre3').text(((($('#ko_price3').text()-($('#en_price3').text()*data))/$('#ko_price3').text())*100).toFixed(2)+'%');
+			     	 $('#ko_pre4').text(((($('#ko_price4').text()-($('#en_price4').text()*data))/$('#ko_price4').text())*100).toFixed(2)+'%');
+			    	 $('#ko_pre5').text(((($('#ko_price5').text()-($('#en_price5').text()*data))/$('#ko_price5').text())*100).toFixed(2)+'%');
+				
+			    	 
+		        	 var price1 = ((($('#ko_price1').text()-($('#en_price1').text()*data))/$('#ko_price1').text())*100).toFixed(2);	 
+			    	 var price2 = ((($('#ko_price2').text()-($('#en_price2').text()*data))/$('#ko_price2').text())*100).toFixed(2);	 
+			    	 var price3 = ((($('#ko_price3').text()-($('#en_price3').text()*data))/$('#ko_price3').text())*100).toFixed(2);	 
+			    	 var price4 = ((($('#ko_price4').text()-($('#en_price4').text()*data))/$('#ko_price4').text())*100).toFixed(2);	 
+			    	 var price5 = ((($('#ko_price5').text()-($('#en_price5').text()*data))/$('#ko_price5').text())*100).toFixed(2);	 
+			    	
+			    	 if(price1>0){
+			    		 $('#ko_pre1').css("color","red");
+			    		 $('#ko_pre1').text('+'+$('#ko_pre1').text());
+			    	 }else{
+			    		 $('#ko_pre1').css("color","blue");
+			    		 $('#ko_pre1').text('-'+$('#ko_pre1').text());
+			    	 }
+			    
+			    	 if(price2>0){
+			    		 $('#ko_pre2').css("color","red");
+			    		 $('#ko_pre2').text('+'+$('#ko_pre2').text());
+			    	 }else{
+			    		 $('#ko_pre2').css("color","blue");
+			    		 $('#ko_pre2').text('-'+$('#ko_pre2').text());
+			    	 }
+			    	 
+			    	 if(price3>0){
+			    		 $('#ko_pre3').css("color","red");
+			    		 $('#ko_pre3').text('+'+$('#ko_pre3').text());
+			    	 }else{
+			    		 $('#ko_pre3').css("color","blue");
+			    		 $('#ko_pre3').text('-'+$('#ko_pre3').text());
+			    	 }
+			    	 
+			    	 if(price4>0){
+			    		 $('#ko_pre4').css("color","red");
+			    		 $('#ko_pre4').text('+'+$('#ko_pre4').text());
+			    		 
+			    	 }else{
+			    		 $('#ko_pre4').css("color","blue");
+			    		 $('#ko_pre4').text('-'+$('#ko_pre4').text());
+			    	 }
+			    	 
+			    	 if(price5>0){
+			    		 $('#ko_pre5').css("color","red");
+			    		 $('#ko_pre5').text('+'+$('#ko_pre5').text());
+			    	 }else{
+			    		 $('#ko_pre5').css("color","blue");
+			    		 $('#ko_pre5').text('-'+$('#ko_pre5').text());
+			    	 }
+			    	 
+		
+			    	 
+			    		  
+		        
+		        
+		        }
+
+		    });
+
+		    }, 3000);
+		
+		    
+	/* 	    $('#en_price1').on('DOMSubtreeModified propertychange', function() {
+		       
+			    $.ajax({
+				      url: "/Chart/exchange.do",   
+				      type:"get", 
+				      cache : false,
+				      async  : false,
+				      success: function(data){ 
+				    	 //console.log(((($('#ko_price1').text()-($('#en_price1').text()*data))/$('#ko_price1').text())*100).toFixed(2));
+				    var price = ((($('#ko_price1').text()-($('#en_price1').text()*data))/$('#ko_price1').text())*100).toFixed(2);	 
+				    	 $('#ko_pre1').text(price+'%');
+				    	 
+				      }
+				  });
+		    });
+		  
+		    $('#en_price2').on('DOMSubtreeModified propertychange', function() {
+			       
+			    $.ajax({
+				      url: "/Chart/exchange.do",   
+				      type:"get", 
+				      cache : false,
+				      async  : false,
+				      success: function(data){ 
+				    	 //console.log(((($('#ko_price2').text()-($('#en_price2').text()*data))/$('#ko_price2').text())*100).toFixed(2));
+				    	 
+				    	 $('#ko_pre2').text(((($('#ko_price2').text()-($('#en_price2').text()*data))/$('#ko_price2').text())*100).toFixed(2)+'%');
+				    	 
+				      }
+				  });
+		    });
+		    
+		    $('#en_price3').on('DOMSubtreeModified propertychange', function() {
+			       
+			    $.ajax({
+				      url: "/Chart/exchange.do",   
+				      type:"get", 
+				      cache : false,
+				      async  : false,
+				      success: function(data){ 
+				    	// console.log(((($('#ko_price3').text()-($('#en_price3').text()*data))/$('#ko_price3').text())*100).toFixed(2));
+				    	 
+				    	 $('#ko_pre3').text(((($('#ko_price3').text()-($('#en_price3').text()*data))/$('#ko_price3').text())*100).toFixed(2)+'%');
+				    	 
+				      }
+				  });
+		    });
+		    
+		    $('#en_price4').on('DOMSubtreeModified propertychange', function() {
+			       
+			    $.ajax({
+				      url: "/Chart/exchange.do",   
+				      type:"get", 
+				      cache : false,
+				      async  : false,
+				      success: function(data){ 
+				    	// console.log(((($('#ko_price4').text()-($('#en_price4').text()*data))/$('#ko_price4').text())*100).toFixed(2));
+				    	 
+				    	 $('#ko_pre4').text(((($('#ko_price4').text()-($('#en_price4').text()*data))/$('#ko_price4').text())*100).toFixed(2)+'%');
+				    	 
+				      }
+				  });
+		    });
+		    
+		    $('#en_price5').on('DOMSubtreeModified propertychange', function() {
+			       
+			    $.ajax({
+				      url: "/Chart/exchange.do",   
+				      type:"get", 
+				      cache : false,
+				      async  : false,
+				      success: function(data){ 
+				    	 //console.log(((($('#ko_price5').text()-($('#en_price5').text()*data))/$('#ko_price5').text())*100).toFixed(2));
+				    	 
+				    	 $('#ko_pre5').text(((($('#ko_price5').text()-($('#en_price5').text()*data))/$('#ko_price5').text())*100).toFixed(2)+'%');
+				    	 
+				      }
+				  });
+		    }); */
+		    
+
+	});	
 
 
-=======
->>>>>>> refs/remotes/origin/master
 	////////////////////////////test/////////////////////////////////
 	  	function BTC(){				
 	 		 var bitcoin_ko='';
@@ -341,7 +473,35 @@ $(document).ready(function(){
 	 	DOGE_U();
 	 	ADA_U();
 	//////////////////test end//////////////////////////////////////
-				
+			
+	//////CLOCK START///////////////////////////////////////////////
+  function showClock()
+    {
+        var currentDate=new Date();
+        var divClock=document.getElementById("divClock");
+        var apm=currentDate.getHours();
+        if(apm<12)
+        {
+            apm="AM";
+        }
+        else
+        {
+            apm="PM";
+        }
+        
+        var msg = apm +(currentDate.getHours())+":";
+        msg += currentDate.getMinutes() + ":";
+        msg += currentDate.getSeconds() + "";
+        msg += " (KST)";
+        
+        divClock.innerText=msg;
+        
+        setTimeout(showClock,1000);
+    }
+  showClock();
+//////////////CLOCK END //////////////////
+	
+	
 </script>  
 <%@ include file="../include/footer.jsp" %>
 </body>

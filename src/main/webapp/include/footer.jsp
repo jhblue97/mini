@@ -1,5 +1,4 @@
 <footer class="container">
 	<hr>
-	<p>&copy; coin gallery </p>
-	<p>email : jhblue05@gmail.com</p>
+	<p  style="text-align: center;" >&copy; bit gallery  email : jhblue05@gmail.com</p>
 </footer>

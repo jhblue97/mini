@@ -1,7 +1,7 @@
 
-CREATE TABLE Board (
+CREATE TABLE BoardBit (
 	num number primary key,
-	id varchar2(10) not null references member(id) 
+	id varchar2(10) not null references Users(id) 
 							on delete cascade,
 	subject varchar2(100) not null,
 	content varchar2(4000) not null,
@@ -11,15 +11,13 @@ CREATE TABLE Board (
 	recommend number
 );
 
-CREATE SEQUENCE BOARD_SEQ nocache;
+CREATE SEQUENCE BOARDBIT_SEQ nCocache;
 
-create table User (
+create table Users (
 	id varchar2(10) primary key ,
 	snsFlag varchar2(2) not null,
 	snsID varchar2(40) not null,
 	name varchar2(10) not null,
-	gender varchar2(10),
-	birth varchar2(10),
 	mail varchar2(30),
 	phone varchar2(20),
 	regDate date

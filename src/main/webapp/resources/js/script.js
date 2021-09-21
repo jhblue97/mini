@@ -87,3 +87,31 @@ function checkProduct(){
 	
 	
 }  
+
+
+function checkUser(){
+	if($('#idCheck').val() == 'N'){
+		
+		alert('IDの重複チェックを確認してください。');
+		return;
+	}
+	if($('#nickname').val()  == ''){
+		
+		alert('ニックネームを確認してください。');
+		return;
+	}
+		if($('#email').val()  == ''){
+		
+		alert('emailを確認してください。');
+		return;
+	}
+	
+			if($('#phone').val()  == ''){
+		
+		alert('phoneを確認してください。');
+		return;
+	}
+	
+		
+	$('form').submit(); //폼 데이터 전송
+}

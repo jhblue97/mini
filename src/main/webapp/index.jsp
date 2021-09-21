@@ -12,27 +12,6 @@
 <body>
 <%@ include file="../include/header.jsp" %>
 
-<script>
-
-/////=========Kakao Login View popup ==========////////////
-$(function() {
-	
-	  $("#Kakao").on("click", function() {
-		   
-		  var  URL = "https://kauth.kakao.com/oauth/authorize?client_id=0eddcf33f74e05ddec2ab39ebbd750cb&redirect_uri=http://192.168.219.101:8080/main.jsp&response_type=code"
-		  popWin
-		  = window.open(URL,   "popWin",  "left=300,top=200,width=780,height=500,marginwidth=0,marginheight=0,"+
-					"scrollbars=no,scrolling=no,menubar=no,resizable=no") 
-					 opener.window.location = url;
-		  close();/				
-	  });
-}); 
-
-
-</script>
-
-
-
 	<h1>MINI PROJECT - 가상화폐 갤러리 (仮想通貨ギャラリー)</h1>
 	<ol>
 	<li> <a>개요</a> 
@@ -69,8 +48,10 @@ $(function() {
 					<li> 글 상세보기 :  로그인 할 시 상세보기 가능 (글 번호,제목,작성자,내용,작성일,작성자계급,추천수) </li>
 					<li> 추천 기능 : 추천버튼을 이용한 추천하기 기능 (유저ID,글 번호,추천 수 ) </li>
 					<li> 트롤박스 채팅기능 : 메인화면에 작은 트롤박스를 만들어 실시간 웹소켓을 이용한 채팅 가능하도록 구현 (유저ID,글내용,글 작성 시간)</li>
-	
-				</ul>
+					<li> 내 글 수정 : 해당 유저가 쓴 글 상세보기에서 수정 버튼 클릭시 해당 글 수정(글 제목,글 내용,수정 일자)</li>
+					
+					<li> 내 글 삭제 : 해당 유저가 쓴 글 상세보기에서 삭제 버튼 클릭시 해당 글 삭제(글 ID)</li>
+					</ul>
 			</li>			
 			<li>관리자 
 				<ul>
@@ -88,10 +69,5 @@ $(function() {
 		</li>
 	</ol>
 </body>
-
-
-<a href=# id="Kakao">
-	   <img src="/resources/images/KakaoTalk.png" height="50" width="50"/>
-		</a>
 
 </html>
