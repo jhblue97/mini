@@ -13,12 +13,13 @@
     background-attachment: fixed;">
 <%@ include file="../include/header.jsp" %>
 
-
+ <div class="container-fluid">  
     <div class="col-md-offset-1 col-md-12">
 
 		<h1 id = "divClock"  class="clock" style="text-align: center;"></h1>
 
 	</div>
+  
   
 <div class="container">
     <div class="row">
@@ -51,35 +52,35 @@
                                 <td><img src = "/resources/images/BITCOINICON.png" width = "20"> &nbsp; BITCOIN</td>
                                 <td><p id = "ko_price1"></p></td>
                                 <td><p id = "en_price1"></p></td>
-                                <td><p id = "ko_pre1"></p></td>
+                                <td><p id = "ko_pre1" class = "premium"></p></td>
                             </tr>
                             <tr>
                                 <td>&nbsp; 2</td>
                                 <td><img src = "/resources/images/ETH.png" width = "20"> &nbsp; ETHERUM</td>
                                 <td><p id = "ko_price2"></p></td>
                                 <td><p id = "en_price2"></p></td>
-                                <td><p id = "ko_pre2"></p></td>
+                                <td><p id = "ko_pre2" class = "premium"></p></td>
                             </tr>
                             <tr>
                                 <td>&nbsp; 3</td>
                                 <td><img src = "/resources/images/RIPPLE.png" width = "20"> &nbsp; RIPPLE</td>
                                 <td><p id = "ko_price3"></p></td>
                                 <td><p id = "en_price3"></p></td>
-                                <td><p id = "ko_pre3"></p></td>
+                                <td><p id = "ko_pre3" class = "premium"></p></td>
                             </tr>
                             <tr>
                                 <td>&nbsp; 4</td>
                                 <td><img src = "/resources/images/DOGE.png" width = "20"> &nbsp; DOGE</td>
                                 <td><p id = "ko_price4"></p></td>
                                 <td><p id = "en_price4"></p></td>
-                                <td><p id = "ko_pre4"></p></td>
+                                <td><p id = "ko_pre4" class = "premium"></p></td>
                             </tr>
                             <tr>
                                 <td>&nbsp; 5</td>
                                 <td><img src = "/resources/images/ADA.png" width = "20"> &nbsp; ADA</td>
                                 <td><p id = "ko_price5"></p></td>
                                 <td><p id = "en_price5"></p></td>
-                                <td><p id = "ko_pre5"></p></td>
+                                <td><p id = "ko_pre5" class = "premium"></p></td>
                             </tr>
                         </tbody>
                     </table>
@@ -121,6 +122,10 @@
         
     </div>
 </div>
+
+</div>
+
+
 <script type="text/javascript">
 
 	$(document).ready(function(){

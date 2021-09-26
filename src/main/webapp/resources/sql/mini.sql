@@ -11,7 +11,7 @@ CREATE TABLE BoardBit (
 	recommend number
 );
 
-CREATE SEQUENCE BOARDBIT_SEQ nCocache;
+CREATE SEQUENCE BOARDBIT_SEQ nocache;
 
 create table Users (
 	id varchar2(10) primary key ,

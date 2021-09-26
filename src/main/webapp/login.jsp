@@ -7,12 +7,25 @@
 
 <script src="https://developers.kakao.com/sdk/js/kakao.js"></script> 
 <title>login.jsp</title>
+<style>
+.container-fluid {
+
+background-color: rgba( 0, 0, 0, 0.5 );
+height: 80%;
+} 
+ 
+</style>
+
+
 </head>
 <body  class="main-bg" style ="    height: 100%;
     margin: 0;
     background-repeat: no-repeat;
-    background-attachment: fixed;">
-<%@ include file="../include/header.jsp" %>
+    background-attachment: fixed; 
+    background-image : url('/resources/images/bitbg.png');
+    background-repeat : no-repeat;
+    background-size : cover;">
+<%@ include file="../include/header.jsp" %> 
 <jsp:useBean id = "user" class = "edu.mini.dto.Users"/>
 <script>
 Kakao.init('0eddcf33f74e05ddec2ab39ebbd750cb'); //발급받은 키 중 javascript키를 사용해준다.
@@ -33,7 +46,7 @@ function kakaoLogin() {
         	        cache : false,
         	        type:"get", 
         	        success : function (data) {
-        	        	console.log(data);
+        	        	
         	        	if(data==1){
 							location.href = "/main.jsp";
         	        	}else{
@@ -41,10 +54,7 @@ function kakaoLogin() {
         	        	}
         	        }
         	    }); 
-        	    
-        	    
-        	 
-              
+             
           },
           fail: function (error) {
             console.log(error)
@@ -89,6 +99,7 @@ function kakaoLogout() {
 	</li>
 </ul>
  -->
+ <div class="container-fluid">
         <div class="login-container text-c animated flipInX">
                 <div>
                     <h1 class="logo-badge text-whitesmoke"><span class="fa fa-user-circle"></span></h1>
@@ -104,7 +115,7 @@ function kakaoLogout() {
                        </form>
                   </div>
             </div>
-            
+  </div>          
 <%@ include file="../include/footer.jsp" %>
 </body>
 </html>

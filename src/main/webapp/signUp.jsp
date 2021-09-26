@@ -43,11 +43,9 @@ function idCheck2(){
 		<!-- 필수 입력 항목 안내 메시지 -->
 		<c:set var="idMsg" 	value="아이디는 필수 입력 항목입니다."/>
 			<input type = "hidden"  name = "snsid" value ='${param.snsID}'>
-			<input type = "hidden"  name = "snsflag" value ='${param.snsFlag}'>
-			
+			<input type = "hidden"  name = "snsflag" value ='${param.snsFlag}'>			
 			<input type = "hidden"  name = "idCheck" id = "idCheck" value ='N'>
-				
-				
+		
 		<div class="form-group row">
 			<label class="col-sm-2">ID</label>
 			<div class="col-sm-3">

@@ -12,6 +12,9 @@
 <body>
 <%@ include file="../include/header.jsp" %>
 
+
+
+
 	<h1>MINI PROJECT - 가상화폐 갤러리 (仮想通貨ギャラリー)</h1>
 	<ol>
 	<li> <a>개요</a> 
@@ -68,6 +71,8 @@
 			</ol>
 		</li>
 	</ol>
+	
+
 </body>
 
 </html>

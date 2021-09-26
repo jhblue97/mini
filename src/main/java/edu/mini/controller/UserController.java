@@ -10,7 +10,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import org.json.simple.JSONObject;
+
 import edu.mini.dao.UserDAO;
+import edu.mini.dto.BoardBit;
 import edu.mini.dto.Users;
 
 
@@ -24,6 +27,7 @@ public class UserController extends HttpServlet {
 	private UserDAO userdao;
 	private String url;
 	private boolean result;
+	private Users user;
 	
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
@@ -50,6 +54,9 @@ public class UserController extends HttpServlet {
 		System.out.println("cmd--->"+cmd.split("/")[2]);
 		switch (cmd.split("/")[2]) {	
 		case "addUser.do" :		addUser(request);	response.sendRedirect(url);	return;	//로그인 테스트 
+		case "updateUser.do" :		updateUser(request);	response.sendRedirect(url);	return;	//로그인 테스트 
+		case "getUser.do" :		getUser(request);	    request.setAttribute("user",user);//로그인 테스트 
+		
 		/*
 		 * case "/BoardWriteForm.do" : boardWriteForm(); break; //게시판 글쓰기 폼 case
 		 * "/BoardWrite.do" : boardWrite(request); //게시판 글쓰기 response.sendRedirect(url);
@@ -87,6 +94,39 @@ public class UserController extends HttpServlet {
 		url = "/main.jsp";	//url 		
 	}
 	
+	public void updateUser(HttpServletRequest request) {//게시판 글쓰기 처리
+		System.out.println("test"+session.getAttribute("userid").toString());		
+		
+		Users users = new Users();
+		
+		users.setId(session.getAttribute("userid").toString());
+		users.setSnsid(request.getParameter("snsid"));
+		users.setName(request.getParameter("name"));
+		users.setSnsflag(request.getParameter("snsflag"));
+		users.setMail(request.getParameter("mail"));
+		users.setPhone(request.getParameter("phone"));
+		
+		
+		result = userdao.updateUser(users); //board 테이블에 저장하는 메서드 호출
 	
+		
+		  url = "/User/getUser.do?id="+session.getAttribute("userid").toString();	//url 	
+	}
+	
+	
+
+	public void getUser(HttpServletRequest request) throws IOException {
+		
+	    user = new Users();
+	
+	   
+	   user = userdao.getUser(request.getParameter("id"));
+	    
+	   
+	   
+	   
+	   url = "/userUpdate.jsp";	//url 		
+	  
+	}
 
 }

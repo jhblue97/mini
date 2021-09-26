@@ -42,7 +42,7 @@ function addToCart(){
 			$('form').submit();			
 	}
 }
-function checkProduct(){
+/*function checkProduct(){
 	
 	//상품명 : 4자~20자 (특수문자는 _ - 가능)
 	//상품가격 : 숫자만 가능, 소수점 둘째 자리까지
@@ -86,7 +86,7 @@ function checkProduct(){
 	$('form').submit(); //폼 데이터 전송
 	
 	
-}  
+}  */
 
 
 function checkUser(){
@@ -113,5 +113,5 @@ function checkUser(){
 	}
 	
 		
-	$('form').submit(); //폼 데이터 전송
+	$('#boardWrite').submit(); //폼 데이터 전송
 }

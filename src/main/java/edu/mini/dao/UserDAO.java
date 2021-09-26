@@ -49,7 +49,8 @@ public class UserDAO {
 			int count = 0;
 			
 				query = "select * from users where snsid = '" +snsid+"' AND snsflag = '"+snsflag+"'";		
-			try {		
+				System.out.println(query);
+				try {		
 				con = DBcon.getConnection();
 				stmt = con.createStatement();			
 				rs = stmt.executeQuery(query); //5 		
@@ -73,7 +74,35 @@ public class UserDAO {
 			return user;
 		}
 		
-		  
+		public Users getUser(String userid) {
+			Users user = new Users();
+			
+			int count = 0;
+			
+				query = "select * from users where id = '" +userid+"'";		
+			try {		
+				con = DBcon.getConnection();
+				stmt = con.createStatement();			
+				rs = stmt.executeQuery(query); //5 		
+				if(rs.next()) {
+					
+					user.setId(rs.getString("id"));
+					user.setSnsflag(rs.getString("snsflag"));
+					user.setSnsid(rs.getString("snsid"));
+					user.setName(rs.getString("name"));
+					user.setMail(rs.getString("mail"));
+					user.setPhone(rs.getString("phone"));
+					user.setRegdate(rs.getDate("regdate"));
+				}		
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} finally {
+				DBcon.close(stmt);			
+			}
+			
+			return user;
+		}
 		  
 		  public boolean addUser(Users user) {
 		  
@@ -110,5 +139,34 @@ public class UserDAO {
 		  
 		  return result; }
 		 
-	
+		  public boolean updateUser(Users user) {
+			  
+		  query = "update users set name = ?,mail= ?,phone = ?"
+		  		+ " where  id = ? ";
+		 
+		 System.out.println(query+user.getName()+user.getMail()+user.getPhone()+user.getId());
+		  
+		  try { 
+		  con = DBcon.getConnection(); 
+		  pstmt = con.prepareStatement(query);
+		  pstmt.setString(1,user.getName());
+		  pstmt.setString(2,user.getMail());
+		  pstmt.setString(3,user.getPhone());
+		  pstmt.setString(4,user.getId()); 
+		  
+		  if(pstmt.executeUpdate()==1) { 
+			   System.out.println("update ok"); 
+			  result = true;
+		  
+		  }else { System.out.println("update not ok");
+		  
+		  result = false; }
+		  
+		  } catch (SQLException e) { // TODO Auto-generated catch block
+		  e.printStackTrace(); } finally { DBcon.close(pstmt);
+		  
+		  }
+		  
+		  
+		  return result; }
 }

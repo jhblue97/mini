@@ -1,17 +1,39 @@
 @charset "UTF-8";
 
 
+.premium {
+	background-color: black;
+    border-radius: 20px;
+    width: 45%;
+    text-align: center;
+	
+}
+
+.container-fluid {
+
+background-color: rgba( 0, 0, 0, 0.5 );
+height: 80%;
+padding : 10px 0;
+} 
+
+.navbar-header > a,.nav-item > a {
+	
+	 color : floralwhite;
+	 font-size: larger;
+}
+
 body {
 	color : white;
 	font-family : google;
-	/* background-image: url("../images/rain.jpeg"); */
-	background-color : black;	 
-	/* 
-	background-color: #181842; */	
-	/* background-image: linear-gradient(to top, #09203f 0%, #537895 100%);	
- */	
-	/* background-image: url("https://images.pexels.com/photos/1072179/pexels-photo-1072179.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940");	
-	 */
+	
+ 	margin: 0;
+    background-repeat: no-repeat;
+    background-attachment: fixed; 
+    background-image : url('/resources/images/bitbg.png');
+    background-repeat : no-repeat;
+    background-size : cover;
+    
+    
 }
 
 input > {
@@ -530,4 +552,9 @@ License Terms.demo{ font-family: 'Noto Sans', sans-serif; }
     margin-bottom: 0;
 }
 /*로그인 화면 END*/
+
+
+
+
+
 
